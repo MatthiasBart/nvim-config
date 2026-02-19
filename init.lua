@@ -116,7 +116,6 @@ require('lazy').setup({
     -- -----------------------------------------------------------------------
     {
         'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             local telescope = require('telescope')
@@ -250,8 +249,15 @@ require('lazy').setup({
             --        },
             --    },
             --})
+            -- 
+            vim.lsp.config('sourcekit', {
+                cmd = { 'xcrun', 'sourcekit-lsp', '--default-workspace-type', 'buildServer' },
+                --cmd_env = {
+                --    SOURCEKIT_LOGGING = '3',
+                --    XBS_LOGPATH = '/tmp/xbs_nvim.log',
+                --},
+            })
 
-            -- Enable your servers (configs come from nvim-lspconfig's lsp/ directory)
             vim.lsp.enable({ 'sourcekit', 'gopls' })
         end,
     },
