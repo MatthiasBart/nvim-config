@@ -30,10 +30,9 @@ vim.opt.tabstop        = 4             -- Tab width
 vim.opt.shiftwidth     = 4             -- Indent width
 vim.opt.expandtab      = true          -- Tabs → spaces
 vim.opt.smartindent    = true          -- Auto-indent new lines
-vim.opt.wrap           = false         -- No line wrapping
+vim.opt.wrap           = true          -- No line wrapping
 vim.opt.cursorline     = true          -- Highlight current line
 vim.opt.signcolumn     = 'yes'         -- Always show sign column (for diagnostics)
-vim.opt.termguicolors  = true          -- 24-bit color
 vim.opt.scrolloff      = 8             -- Keep 8 lines above/below cursor
 vim.opt.updatetime     = 250           -- Faster CursorHold (for diagnostics)
 vim.opt.splitright     = true          -- Vertical splits open right
@@ -252,10 +251,10 @@ require('lazy').setup({
             -- 
             vim.lsp.config('sourcekit', {
                 cmd = { 'xcrun', 'sourcekit-lsp', '--default-workspace-type', 'buildServer' },
-                --cmd_env = {
-                --    SOURCEKIT_LOGGING = '3',
-                --    XBS_LOGPATH = '/tmp/xbs_nvim.log',
-                --},
+                cmd_env = {
+                    SOURCEKIT_LOGGING = '3',
+                    XBS_LOGPATH = '/tmp/xbs_nvim.log',
+                },
             })
 
             vim.lsp.enable({ 'sourcekit', 'gopls' })
