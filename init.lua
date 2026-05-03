@@ -124,6 +124,11 @@ require('lazy').setup({
                 defaults = {
                     file_ignore_patterns = { 'node_modules', '.git/', '__pycache__' },
                 },
+                pickers = { 
+                    find_files = {
+                        hidden = true
+                    }
+                }
             })
 
             -- File pickers
