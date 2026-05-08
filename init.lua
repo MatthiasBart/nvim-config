@@ -238,6 +238,7 @@ require('lazy').setup({
             --
             -- Swift:    comes with Xcode (xcrun --find sourcekit-lsp)
             -- Go:       go install golang.org/x/tools/gopls@latest
+            -- Rust:     rustup component add rust-analyzer
             -- SQL:      brew install sqls
 
             -- Override or extend configs if needed:
@@ -257,12 +258,12 @@ require('lazy').setup({
             vim.lsp.config('sourcekit', {
                 cmd = { 'xcrun', 'sourcekit-lsp', '--default-workspace-type', 'buildServer' },
                 cmd_env = {
-                    SOURCEKIT_LOGGING = '3',
+                    SOURCEKIT_LOGGING = '0',
                     XBS_LOGPATH = '/tmp/xbs_nvim.log',
                 },
             })
 
-            vim.lsp.enable({ 'sourcekit', 'gopls' })
+            vim.lsp.enable({ 'sourcekit', 'gopls', 'rust_analyzer' })
         end,
     },
 
